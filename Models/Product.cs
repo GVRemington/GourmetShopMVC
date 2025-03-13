@@ -11,6 +11,6 @@ namespace GourmetShopMVC.Models
         public decimal? UnitPrice { get; set; }
         public string? Package { get; set; }
         public required bool IsDiscontinued  { get; set; }
-        public int? CategoryId { get; set; }
+        public int? category_Id { get; set; }
     }
 }

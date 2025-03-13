@@ -54,7 +54,7 @@ namespace GourmetShopMVC.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,MyProperty,ContactName,ContactTitle,City,Country,Phone,Fax,IsInactive")] Supplier supplier)
+        public async Task<IActionResult> Create([Bind("Id,CompanyName,ContactName,ContactTitle,City,Country,Phone,Fax,IsInactive")] Supplier supplier)
         {
             if (ModelState.IsValid)
             {
@@ -86,7 +86,7 @@ namespace GourmetShopMVC.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,MyProperty,ContactName,ContactTitle,City,Country,Phone,Fax,IsInactive")] Supplier supplier)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,CompanyName,ContactName,ContactTitle,City,Country,Phone,Fax,IsInactive")] Supplier supplier)
         {
             if (id != supplier.Id)
             {

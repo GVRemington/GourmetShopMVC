@@ -28,7 +28,7 @@
                 @Html.DisplayNameFor(model => model.IsDiscontinued)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.CategoryId)
+                @Html.DisplayNameFor(model => model.category_Id)
             </th>
             <th></th>
         </tr>
@@ -52,7 +52,7 @@
                 @Html.DisplayFor(modelItem => item.IsDiscontinued)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.CategoryId)
+                @Html.DisplayFor(modelItem => item.category_Id)
             </td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
