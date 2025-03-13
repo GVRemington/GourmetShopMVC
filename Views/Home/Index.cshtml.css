@@ -1,0 +1,22 @@
+﻿.container {
+    background-image: radial-gradient(lightgrey 50%, white 70%);
+}
+
+.img-fluid {
+    position: absolute;
+    top: 5%;
+    left: 13%;
+}
+
+.description {
+    margin-left: 12%;
+}
+
+.btn {
+    transition: transform .5s;
+    box-shadow: 2px 2px 7px grey;
+}
+
+.btn:hover {
+    transform: scale(1.03);
+}

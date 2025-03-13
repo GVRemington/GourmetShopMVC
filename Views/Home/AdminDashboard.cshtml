@@ -8,13 +8,14 @@
     }
 }
 
-<h1>AdminDashboard</h1>
-
-<div class="row my-5">
-    <div class="col d-grid w-25">
-        <button type="button" class="btn bg-dark rounded-pill px-4"><a class="fs-5 text-white text-decoration-none" asp-area="" asp-controller="Products" asp-action="Index"> Product </a></button>
-    </div>
-    <div class="col d-grid justify-content-end">
-        <button type="button" class="btn bg-dark rounded-pill px-4"><a class="fs-5 text-white text-decoration-none" asp-area="" asp-controller="Suppliers" asp-action="Index"> Supplier </a></button>
+<h1 class="display-1 d-grid justify-content-center">Admin Dashboard</h1>
+<div class="container w-50 pt-5">
+    <div class="row my-5">
+        <div class="col d-grid justify-content-start">
+            <button type="button" class="btn bg-dark rounded-pill px-4"><a class="fs-5 text-white text-decoration-none" asp-area="" asp-controller="Products" asp-action="Index"> View Products </a></button>
+        </div>
+        <div class="col d-grid justify-content-end">
+            <button type="button" class="btn bg-dark rounded-pill px-4"><a class="fs-5 text-white text-decoration-none" asp-area="" asp-controller="Suppliers" asp-action="Index"> View Suppliers </a></button>
+        </div>
     </div>
 </div>

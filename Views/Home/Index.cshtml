@@ -2,11 +2,24 @@
     ViewData["Title"] = "Home Page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col text-center">
+                <h1 class="display-1 fw-bold mt-5">Welcome <br />to the</h1>
+                <a href="" class="d-flex justify-content-center text-end">
+                    <img src="~/img/Gourmet-Shop-6.png" class="img-fluid" alt="Gourmet Shop Logo" />
+                </a>
+                <p class="description fs-4 w-75 pb-4">The best place to find all your gourmet needs.</p>
+                <div class="d-grid mt-5 justify-content-center">
+                    <button type="button" class="btn bg-dark rounded-pill mb-5 px-4"><a class="fs-5 text-white text-decoration-none" asp-area="" asp-controller="" asp-action=""> Start Shopping <i class="bi bi-chevron-right ps-2"></i></a></button>
+                </div>
+                <h3 class="pt-4">Presented By</h3>
+                <p>Rayleen Roberts</p>
+                <p>Sarah Harlan</p>
+                <p>Broc Keeton</p>
+            </div>
+        </div>
 
-<li class="nav-item">
-    <a class="btn text-dark" asp-page="/Home/AdminWelcome">Admin</a>
-</li>
+    </div>
+</body>
