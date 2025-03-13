@@ -4,11 +4,12 @@
 
 .img-fluid {
     position: absolute;
-    top: 5%;
-    left: 13%;
+    top: 23%;
+    left: 36%;
 }
 
 .description {
+    padding-top: 27%;
     margin-left: 12%;
 }
 
