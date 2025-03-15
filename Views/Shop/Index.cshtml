@@ -1,0 +1,66 @@
+﻿@model GourmetShopMVC.Models.ShoppingViewModel
+
+@{
+    ViewData["Title"] = "Shop Product";
+}
+
+<h1 class="Header mb-10">Welcome Valued Customer!!</h1>
+
+<div class="container">
+    <div class="row">
+        <div class="w-25">
+            <form>
+                <div class="btn-group">
+                    <button class="btn btn-primary">Apply Filter</button>
+                    <a class="btn btn-secondary" asp-asp-controller="Shop" asp-action="Index">Clear Filter</a>
+                </div>
+                <h3 class="categorytitle mt-5">Category</h3>
+                <div class="category">
+                    @foreach (var category in Model.Categories)
+                    {
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" name="categoryid" value="@category.category_id" id="flexCheckDefault">
+                            <label class="form-check-label" for="flexCheckDefault">
+                                @category.category_name
+                            </label>
+                        </div>
+                    }
+                <h3 class="suppliertitle mt-5">Suppliers</h3>
+                <div class="suppliers">
+                
+                        @foreach (var supplier in Model.Suppliers)
+                        {
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" name="supplierid" value="@supplier.Id" id="flexCheckDefault">
+                                <label class="form-check-label" for="flexCheckDefault">
+                                    @supplier.CompanyName
+                                </label>
+                            </div>
+                        }                   
+                </div>
+
+                </div>
+            </form>
+        </div>
+        <div class="col">
+            <div class="row row-cols-3">
+                @foreach (var product in Model.Products)
+                {
+                    <div class="col">
+                        <div class="card mb-2">
+                            <img src="..." class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <h5 class="card-title">@product.ProductName</h5>
+                                <p class="card-text">Price: $ @product.UnitPrice</p>
+                                <p class="card-text">Supplier: @product.Supplier.CompanyName</p>
+                                <a href="#" class="btn btn-primary">Add to Cart</a>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+
+        

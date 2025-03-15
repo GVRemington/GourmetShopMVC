@@ -34,7 +34,7 @@ namespace GourmetShopMVC.Controllers
             }
 
             var categories = await _context.Categories
-                .FirstOrDefaultAsync(m => m.Id == id);
+                .FirstOrDefaultAsync(m => m.category_id == id);
             if (categories == null)
             {
                 return NotFound();
@@ -88,7 +88,7 @@ namespace GourmetShopMVC.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("Id,CategoryName,ParentCategoryId")] Categories categories)
         {
-            if (id != categories.Id)
+            if (id != categories.category_id)
             {
                 return NotFound();
             }
@@ -102,7 +102,7 @@ namespace GourmetShopMVC.Controllers
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!CategoriesExists(categories.Id))
+                    if (!CategoriesExists(categories.category_id))
                     {
                         return NotFound();
                     }
@@ -125,7 +125,7 @@ namespace GourmetShopMVC.Controllers
             }
 
             var categories = await _context.Categories
-                .FirstOrDefaultAsync(m => m.Id == id);
+                .FirstOrDefaultAsync(m => m.category_id == id);
             if (categories == null)
             {
                 return NotFound();
@@ -151,7 +151,7 @@ namespace GourmetShopMVC.Controllers
 
         private bool CategoriesExists(int id)
         {
-            return _context.Categories.Any(e => e.Id == id);
+            return _context.Categories.Any(e => e.category_id == id);
         }
     }
 }

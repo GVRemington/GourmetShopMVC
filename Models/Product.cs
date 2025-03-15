@@ -12,5 +12,9 @@ namespace GourmetShopMVC.Models
         public string? Package { get; set; }
         public required bool IsDiscontinued  { get; set; }
         public int? category_Id { get; set; }
+
+        public virtual Supplier Supplier { get; set; }
+        public virtual Categories Category { get; set; }
+
     }
 }

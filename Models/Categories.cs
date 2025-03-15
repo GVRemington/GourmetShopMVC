@@ -5,8 +5,8 @@ namespace GourmetShopMVC.Models
     public class Categories
     {
         [Key]
-        public int Id { get; set; }
-        public required string CategoryName { get; set; }
-        public int? ParentCategoryId { get; set; }
+        public int category_id { get; set; }
+        public required string category_name { get; set; }
+        public int? parent_category_id { get; set; }
     }
 }
