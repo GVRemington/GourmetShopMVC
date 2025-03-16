@@ -1,4 +1,6 @@
-﻿using GourmetShopMVC.Models;
+﻿using GourmetShopMVC.Data;
+using GourmetShopMVC.Models;
+using GourmetShopMVC.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System.Threading.Tasks;
@@ -7,11 +9,13 @@ namespace GourmetShopMVC.Controllers
 {
     public class ShopController : Controller
     {
-        private readonly GourmetShopMVC.Data.GourmetShopMVCContext _context;
+        private readonly GourmetShopMVCContext _context;
+        private readonly CartService _cartService;
 
-        public ShopController(GourmetShopMVC.Data.GourmetShopMVCContext context)
+        public ShopController(GourmetShopMVCContext context, CartService cart)
         {
             _context = context;
+            _cartService = cart;
         }
 
         public async Task<IActionResult> Index(int[] supplierid, int[] categoryid)
@@ -25,6 +29,10 @@ namespace GourmetShopMVC.Controllers
             {
                 categoryid = _context.Categories.Select(c => c.category_id).ToList().ToArray();
             }
+
+            ViewData["supplierid"] = supplierid;
+            ViewData["categoryId"] = categoryid;
+            ViewData["CurrentItemsInCart"] = _cartService.Cart.Count;
 
             var product = await _context.Product.Where(p => supplierid.Any(x => x == p.SupplierId)).ToListAsync();
             var supplier = _context.Supplier.ToList();
@@ -42,7 +50,7 @@ namespace GourmetShopMVC.Controllers
                 .ToListAsync();
             //var user = await _context.Users.Where(u => u.UserId == 0).FirstOrDefaultAsync();
 
-            var model = new ShoppingViewModel
+            var model = new ShopViewModel
             {
                 Products = products,
                 Suppliers = suppliers,
@@ -51,6 +59,20 @@ namespace GourmetShopMVC.Controllers
             };
 
             return View(model);
+        }
+
+        public async Task<IActionResult> AddToCart(int productId, int[] supplierid, int[] categoryid)
+        {
+            var product = await _context.Product.FindAsync(productId);
+
+            if (product == null)
+            {
+                return NotFound();
+            }
+
+            _cartService.AddItemToCart(product);
+
+            return RedirectToAction("Index", "Shop", new { supplierid = supplierid, categoryid = categoryid });
         }
     }
 }

@@ -2,7 +2,7 @@
 
 namespace GourmetShopMVC.Models
 {
-    public class ShoppingViewModel
+    public class ShopViewModel
     {
         public int Id { get; set; }
         public ICollection<Product> Products { get; set; }

@@ -1,10 +1,13 @@
-﻿@model GourmetShopMVC.Models.ShoppingViewModel
+﻿@model GourmetShopMVC.Models.ShopViewModel
 
 @{
     ViewData["Title"] = "Shop Product";
 }
 
 <h1 class="Header mb-10">Welcome Valued Customer!!</h1>
+
+<a asp-controller="Checkout" asp-action="Index" class="btn btn-primary">Cart (@ViewData["CurrentItemsInCart"])</a>
+
 
 <div class="container">
     <div class="row">
@@ -53,7 +56,7 @@
                                 <h5 class="card-title">@product.ProductName</h5>
                                 <p class="card-text">Price: $ @product.UnitPrice</p>
                                 <p class="card-text">Supplier: @product.Supplier.CompanyName</p>
-                                <a href="#" class="btn btn-primary">Add to Cart</a>
+                                <a href="@Url.Action("AddToCart","Shop", new { productId = product.Id, supplierid = ViewData["supplierid"], categoryid = ViewData["categoryid"] })" class="btn btn-primary btn-sm">Add To Cart</a>
                             </div>
                         </div>
                     </div>

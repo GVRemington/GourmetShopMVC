@@ -1,12 +1,14 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using GourmetShopMVC.Data;
+using GourmetShopMVC.Services;
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddDbContext<GourmetShopMVCContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("GourmetShopMVCContext") ?? throw new InvalidOperationException("Connection string 'GourmetShopMVCContext' not found.")));
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+builder.Services.AddSingleton<CartService>();
 
 var app = builder.Build();
 
