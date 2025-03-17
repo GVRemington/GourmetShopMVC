@@ -6,8 +6,13 @@
 
 <h1 class="Header mb-10">Welcome Valued Customer!!</h1>
 
-<a asp-controller="Checkout" asp-action="Index" class="btn btn-primary">Cart (@ViewData["CurrentItemsInCart"])</a>
-
+@* <a asp-controller="Checkout" asp-action="Index" class="btn btn-primary">Cart (@ViewData["CurrentItemsInCart"])</a> *@
+<div class="text-end">
+    <a asp-controller="Checkout" asp-action="Index">
+        <img src="~/img/ShoppingCartIcon.png" alt="Cart" style="width: 40px; height: 40px;" />
+        @ViewData["CurrentItemsInCart"]
+    </a>
+</div>
 
 <div class="container">
     <div class="row">
