@@ -46,7 +46,7 @@ namespace GourmetShopMVC.Controllers
                 OrderNumber = null,
                 UserId = 92,
                 TotalAmount = null,
-                OrderCancelled = false,
+                OrderCanceled = false,
             };
 
             _context.Order.Add(order);

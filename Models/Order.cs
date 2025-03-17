@@ -10,6 +10,6 @@ namespace GourmetShopMVC.Models
         public string? OrderNumber { get; set; }
         public required int UserId { get; set; }
         public decimal? TotalAmount { get; set; }
-        public bool? OrderCancelled { get; set; } = false;   
+        public bool? OrderCanceled { get; set; } = false;   
     }
 }
